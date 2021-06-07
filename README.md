@@ -6,20 +6,23 @@ Bilgisayar Görüntüsü (Computer Vision) ile Görüntü Sınıflandırma ile A
 doğru şekilde atıkların atılması sağlanabilir.
 
 ## Veri Seti şu şekildedir : 
-   train_generator.class_indices
-   {'cardboard_mavi': 0,
-    'glass_yesil': 1,
-    'metal_gri': 2,
-    'paper_mavi': 3,
-    'plastic_sari': 4,
-    'trash_cop': 5}
-   Training Veri Seti : Found 2114 images belonging to 6 classes.
-   Validation Veri Seti : Found 233 images belonging to 6 classes.
-   Test Veri Seti: Found 168 images belonging to 6 classes. 
-   Buna göre; Karton ve Kağıt atıklar "Mavi" kutulara, Cam atıklar "Yeşil" kutulara, Metal atıklar "Gri" kutulara, Plastik atıklar "Sarı" kutulara,
-              Çöp olarak kabul edilen diğer atıklar ise "Çöp" kutularına atılması gerekmektedir.
+
+train_generator.class_indices
+{'cardboard_mavi': 0,
+ 'glass_yesil': 1,
+ 'metal_gri': 2,
+ 'paper_mavi': 3,
+ 'plastic_sari': 4,
+ 'trash_cop': 5}
+
+Training Veri Seti : Found 2114 images belonging to 6 classes.
+Validation Veri Seti : Found 233 images belonging to 6 classes.
+Test Veri Seti: Found 168 images belonging to 6 classes. 
+
+Buna göre; Karton ve Kağıt atıklar "Mavi" kutulara, Cam atıklar "Yeşil" kutulara, Metal atıklar "Gri" kutulara, Plastik atıklar "Sarı" kutulara,
+Çöp olarak kabul edilen diğer atıklar ise "Çöp" kutularına atılması gerekmektedir.
               
-   PS: İlgili görüntüler Google araması ile veya Kaggle'daki ilgili Dataset bölümlerinde bulunabilir.
+PS: İlgili görüntüler Google araması ile veya Kaggle'daki ilgili Dataset bölümlerinde bulunabilir.
 
 ## Transfer Learning (ResNet50V2 kullanarak)
    base_model = tf.keras.applications.ResNet50V2(weights = 'imagenet', include_top = False, input_shape = (224,224,3))
@@ -40,6 +43,8 @@ doğru şekilde atıkların atılması sağlanabilir.
 
    
 ## Yeni Veriler ile Modelin Test Edilmesi (Test Veri Seti kullanılarak)
+
    loss, accuracy = model.evaluate(test_generator)
+   
    11/11 [==============================] - 68s 7s/step - loss: 0.2801 - accuracy: 0.8869
 
