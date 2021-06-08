@@ -22,7 +22,7 @@ inputs = Input(shape=(224, 224, 3))
 x = base_model(inputs, training=False)
 # Convert features of shape `base_model.output_shape[1:]` to vectors
 x = layers.GlobalAveragePooling2D()(x)
-x = layers.Dense(512, activation='relu')(x)
+x = layers.Dense(1024, activation='relu')(x)
 x = layers.Dropout(0.3)(x)
 outputs = layers.Dense(6, activation = 'softmax')(x)
 model = Model(inputs, outputs)
